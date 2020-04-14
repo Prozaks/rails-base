@@ -34,7 +34,8 @@ docker-compose build
 docker-compose run app bundle install
 ```
 
-### Crear base de datos desde dump
+### Crear base de datos
+
 ```
 docker-compose run app bin/rails db:create
 docker-compose run app bin/rails db:migrate
