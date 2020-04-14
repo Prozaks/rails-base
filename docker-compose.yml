@@ -1,0 +1,39 @@
+version: '3'
+
+services:
+  postgres:
+    image: "postgres:10.4-alpine"
+    environment:
+      POSTGRES_USER: "postgres"
+      POSTGRES_PASSWORD: "postgres"
+    volumes:
+      - "postgres:/var/lib/postgresql/data"
+    ports:
+      - "32768:5432"
+
+  app:
+    depends_on:
+      - "postgres"
+    build: .
+    command:
+      - /bin/sh
+      - -c
+      - |
+        RAILS_ENV=test bundle exec rails s -p 3001 -b '0.0.0.0' -e test -d -P `pwd`/tmp/pids/test.pid
+        bundle exec rails s -p 3000 -b '0.0.0.0' -P `pwd`/tmp/pids/dev.pid
+    ports:
+      - "3000:3000"
+      - "3001:3001"
+    volumes:
+      - ".:/app"
+      - "./tmp:/app/tmp"
+      - base-gems:/gems
+    env_file:
+      - ".env"
+    stdin_open: true
+    tty: true
+
+volumes:
+  postgres:
+  base-gems:
+    external: true
