@@ -1,24 +1,47 @@
-# README
+# Rails Base
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Introducción
 
-Things you may want to cover:
+Base Rails 6 + Postgres + Docker
 
-* Ruby version
+## Stack
 
-* System dependencies
+* Ruby 2.7.1
+* Rails 6.0.2
 
-* Configuration
+## Como iniciar el proyecto
 
-* Database creation
+### Requisitos
 
-* Database initialization
+* Docker
+* Docker Compose
 
-* How to run the test suite
+### Crear volumen para almacenar las gems instaladas
 
-* Services (job queues, cache servers, search engines, etc.)
+```
+docker volume create --name base-gems
+```
 
-* Deployment instructions
+### Build de los distintos containers
 
-* ...
+```
+docker-compose build
+```
+
+### Bundle Install
+
+```
+docker-compose run app bundle install
+```
+
+### Crear base de datos desde dump
+```
+docker-compose run app bin/rails db:create
+docker-compose run app bin/rails db:migrate
+```
+
+### Iniciar los servicios
+
+```
+docker-compose up
+```
