@@ -1,0 +1,141 @@
+@import "spree/frontend/colors";
+@import "spree/frontend/helpers";
+@import "spree/frontend/variables";
+
+.menu-icon {
+  cursor: pointer;
+  height: $size-icon-menu;
+  left: 50px;
+  position: fixed;
+  top: 50px;
+  width: $size-icon-menu;
+  z-index: 200;
+  
+  @media #{$usm} {
+    top: 100px;
+  }
+
+  &__line {
+    background-color: $font-color;
+    display: block;
+    height: 2px;
+    margin-bottom: 4px;
+    transition: transform .2s ease, background-color .5s ease;
+    width: $size-icon-menu;
+  }
+
+  &__line-left {
+    width: $size-icon-menu / 2;
+  }
+
+  &__line-right {
+    float: right;
+    width: $size-icon-menu / 2;
+  }
+}
+
+.nav {
+  position: fixed;
+  z-index: 100;
+
+  &:before, &:after {
+    background: $base-color;
+    content: "";
+    height: $nav-height;
+    position: fixed;
+    transition: transform $transition-easing $transition-length + s;
+    transform: translateX(0%) translateY(-100%);
+    width: $nav-width;
+    z-index: -1;
+  }
+
+  &:after {
+    background: $base-color;
+    transition-delay: 0s;
+  }
+
+  &:before {
+    transition-delay: .1s;
+  }
+
+  &__content {
+    cursor: pointer;
+    font-size: $font-size-calc;
+    font-weight: 200;
+    position: fixed;
+    text-align: center;
+    top: 50%;
+    transform: translate(0%,-50%);
+    width: 100%;
+  }
+
+  &__list-item {
+    display: inline-block;
+    margin-right: 25px;
+    opacity: 0;
+    position: relative;
+    transform: translate(0%, 100%);
+    transition: opacity .2s ease, transform .3s ease;
+    transition-delay: $transition-length + s;
+    
+    &:before {
+      background: $font-color-active;
+      content: "";
+      height: 1px;
+      position: absolute;
+      top: 100%;
+      transform: translate(0%, 0%);
+      transition: all .3s ease;
+      width: 20px;
+      z-index: -1;
+    }
+
+    &:hover {
+      &:before {
+        width: 100%;
+      }
+    }
+  }
+}
+
+body.nav-active {
+  .menu-icon {
+    &__line {
+      background-color: $icon-color;
+      transform: translateX(0px) rotate(-45deg);
+    }
+    &__line-left {
+      transform: translateX(1px) rotate(45deg);
+    }
+    &__line-right {
+      transform: translateX(-2px) rotate(45deg);
+    }
+  }
+
+  .nav {
+    visibility: visible;
+
+    &:before, &:after {
+      transform: translateX(0%) translateY(0%);
+    }
+
+    &:after {
+      transition-delay: .1s;
+    }
+
+    &:before {
+      transition-delay: 0s;
+    }
+
+    &__list-item {
+      opacity: 1;
+      transform: translateX(0%);
+      transition: opacity .3s ease, transform .3s ease, color .3s ease;
+      @for $i from 0 through $items-menu-count {
+        &:nth-child(#{$i}) {
+          transition-delay: $transition-length * $i / 8 + .5 + s;
+        }
+      }
+    }
+  }
+}

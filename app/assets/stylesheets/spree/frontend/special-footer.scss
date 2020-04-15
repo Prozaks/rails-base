@@ -1,0 +1,88 @@
+@import "spree/frontend/colors";
+@import "spree/frontend/helpers";
+@import "spree/frontend/variables";
+
+$this: "delivery-footer";
+
+// Product Info (Single)
+.#{$this} {
+  background-color: $base-color;
+  background-image: -webkit-linear-gradient(-20deg, $base-color 50%, #000 50%);
+  min-height: 70px;
+  padding: 15px;
+
+  &__content {
+    p {
+      vertical-align: middle;
+      color: #FFF !important;
+      font-size: 16px !important;
+      padding: 7px 0;
+      margin: 0;
+
+      @media #{$usm} {
+        padding: 0;
+      }
+
+      @media #{$xs} {
+        font-size: 14px !important;
+      }
+    }
+  }
+
+  &__text {
+    img {
+      vertical-align: middle;
+      margin: 0 5px;
+    }
+
+    span {
+      vertical-align: middle;
+    }
+
+    a {
+      text-decoration: underline;
+      display: inline !important;
+      width: auto !important;
+      color: #FFF !important;
+    }
+
+    @media #{$usm} {
+      display: block;
+      padding: 15px 0;
+    }
+  }
+
+  &__p-left {
+    text-align: right;
+
+    @media #{$usm} {
+      text-align: center;
+    }
+
+    @media #{'(max-width: 410px)'} {
+      .delivery-footer__text {
+        padding-top: 25px;
+      }
+    }
+
+    @media #{'(max-width: 350px)'} {
+      .delivery-footer__text {
+        padding-top: 15px;
+      }
+    }
+  }
+
+  &__p-right {
+    text-align: left;
+
+    @media #{$usm} {
+      text-align: center;
+    }
+  }
+
+  @media #{$usm} {
+    background-image: -webkit-linear-gradient(-90deg, $base-color 50%, #000 50%);
+    padding: 0;
+  }
+
+}

@@ -1,0 +1,23 @@
+<% cache spree_nav_cache_key('header') do %>
+  <div class="menu-icon">
+    <span class="menu-icon__line menu-icon__line-left"></span>
+    <span class="menu-icon__line"></span>
+    <span class="menu-icon__line menu-icon__line-right"></span>
+    <span><%= image_tag "special-header/icon.svg", alt: "", width: "41px", height: "24px" %></span>
+  </div>
+
+  <div class="nav">
+    <div class="nav__content">
+      <ul class="nav__list">
+        <li class="nav__list-item">Home</li>
+        <li class="nav__list-item">About</li>
+        <li class="nav__list-item">Projects</li>
+        <li class="nav__list-item">Contact</li>
+      </ul>
+    </div>
+  </div>
+<% end %>
+
+<% if true %>
+  <%= render :partial => 'spree/shared/special_header' %>
+<% end %>

@@ -1,0 +1,49 @@
+@import "spree/frontend/colors";
+@import "spree/frontend/helpers";
+@import "spree/frontend/variables";
+
+$this: "delivery-header";
+
+// Product Info (Single)
+.#{$this} {
+  background-color: #000;
+
+  &__content {
+    p {
+      vertical-align: middle;
+      color: #FFF;
+      font-size: 16px;
+      margin: 0;
+
+      @media #{$xs} {
+        font-size: 14px;
+      }
+    }
+  }
+
+  &__text {
+
+    img {
+      vertical-align: middle;
+      margin: 0 5px;
+    }
+
+    span {
+      vertical-align: middle;
+    }
+
+    strong {
+      font-weight: 500;
+    }
+
+    a {
+      text-decoration: underline;
+      color: #FFF;
+    }
+
+    @media #{$usm} {
+      display: block;
+      padding: 5px;
+    }
+  }
+}

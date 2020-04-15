@@ -1,0 +1,19 @@
+///// HEADER /////
+// Size of Icon Menu
+$size-icon-menu: 30px;
+
+//Transition Header Menu (Seconds)
+$transition-length: .2;
+
+// Nav Size
+$nav-width:  100vw;
+$nav-height: 100vh;
+
+// Font Size Menu
+$font-size-calc: calc(2vw + 10px);
+
+// Transition Header Fonts
+$transition-easing: cubic-bezier(.77,0,.175,1);
+
+//Item Quantity in Menu
+$items-menu-count: 4;
