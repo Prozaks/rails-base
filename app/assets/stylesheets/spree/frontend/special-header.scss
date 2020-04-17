@@ -6,12 +6,12 @@ $this: "delivery-header";
 
 // Product Info (Single)
 .#{$this} {
-  background-color: #000;
+  background-color: $special-header-color;
 
   &__content {
     p {
       vertical-align: middle;
-      color: #FFF;
+      color: $text-color;
       font-size: 16px;
       margin: 0;
 
@@ -37,8 +37,9 @@ $this: "delivery-header";
     }
 
     a {
-      text-decoration: underline;
-      color: #FFF;
+      text-decoration: none;
+      color: $link-color;
+      cursor: pointer;
     }
 
     @media #{$usm} {

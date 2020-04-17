@@ -1,17 +1,13 @@
 <% @body_id = 'home' %>
+<script type="text/javascript">
+  $(document ).ready(function() {
+    alert("jquery is loaded");
+  });
+</script>
 
-<div class="homepage-hero-image mb-3 position-relative">
-  <img class="lazyload hero-image position-absolute"
-    data-src="<%= asset_path('homepage/main_banner.jpg') %>"
-    data-srcset="<%= image_source_set('homepage/main_banner') %>"
-    alt="<%= Spree.t('homepage.summer_collection')%>" />
-
-  <div class="hero-content">
-    <div>
-      <%= link_to Spree.t('homepage.shop_now'), spree.products_path, class: 'btn btn-primary spree-btn px-5' %>
-    </div>
-  </div>
-</div>
+<% if true %>
+  <%= render :partial => 'spree/shared/main_banner' %>
+<% end %>
 
 <div class="container">
   <div class="row">

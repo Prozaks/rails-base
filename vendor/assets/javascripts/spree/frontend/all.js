@@ -6,8 +6,8 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require accounting.min
-//= require lazysizes.min
+//= require spree/frontend
+//= require_tree .
 
 // Custom Javascripts 
 //= require spree/frontend/custom/header
